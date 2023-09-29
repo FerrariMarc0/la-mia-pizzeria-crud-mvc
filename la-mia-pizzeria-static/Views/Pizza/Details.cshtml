@@ -1,0 +1,18 @@
+﻿@model Pizza
+
+<div class="container mt-5">
+    <div class="card container border-3 border-primary rounded" style="width: 25rem;">
+        <img src="@Model.UrlImage" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">@Model.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Nome: @Model.Name</li>
+            <li class="list-group-item">Prezzo: @Model.Price</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>
