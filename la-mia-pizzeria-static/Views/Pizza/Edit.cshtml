@@ -1,0 +1,40 @@
+﻿@model Pizza
+
+<div class="text-center mt-5">
+    <h1 class="fst-italic">Modifica informazioni</h1>
+</div>
+
+<div class="container border border-3 border-danger rounded p-5" style="margin-top: 5rem">
+    <form asp-controller="Pizza" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label text-uppercase">Nome</label>
+            <input asp-for="Name" class="form-control" type="text" placeholder="Modifica nome">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label text-uppercase">Descrizione</label>
+            <input asp-for="Description" class="form-control" type="text" placeholder="Modifica descrizione">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="UrlImage" class="form-label text-uppercase">Link immagine</label>
+            <input asp-for="UrlImage" class="form-control" type="text" placeholder="Modifica url per dell'immagine">
+            <span asp-validation-for="UrlImage" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label text-uppercase">Prezzo</label>
+            <input asp-for="Price" class="form-control" type="text" placeholder="Modifica il prezzo">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="d-grid mt-5">
+            <button class="btn btn-success" type="submit">Salva modifiche</button>
+        </div>
+
+    </form>
+</div>

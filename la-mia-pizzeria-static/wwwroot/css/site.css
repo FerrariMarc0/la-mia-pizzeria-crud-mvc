@@ -9,10 +9,19 @@ html {
 }
 
 html {
-  position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+  height: 100vh;
+  position: relative;
+}
+
+nav {
+    background-image: url("https://m.media-amazon.com/images/I/61OLGLMJOHL._AC_UF894,1000_QL80_.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
 }
