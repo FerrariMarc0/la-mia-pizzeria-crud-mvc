@@ -1,10 +1,10 @@
 ﻿@model Pizza
 
-<div class="text-center mt-5">
+<div class="text-center shadow-lg py-1 mt-5">
     <h1 class="fst-italic">Creazione nuova pizza</h1>
 </div>
 
-<div class="container border border-3 border-danger rounded p-5" style="margin-top: 5rem">
+<div class="container border border-3 shadow-lg border-danger rounded p-5" style="margin-top: 5rem">
     <form asp-controller="Pizza" asp-action="Create" method="post">
         @Html.AntiForgeryToken()
 

@@ -1,7 +1,7 @@
 ﻿@model Pizza
 
-<div class="container mt-5">
-    <div class="card container border-3 border-danger rounded p-5" style="width: 25rem; margin-top: 10rem;">
+<div class="container rounded w-25 shadow-lg mt-5">
+    <div class="card container border-0 p-5" style="width: 25rem; margin-top: 10rem;">
         <img src="@Model.UrlImage" class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text">@Model.Description</p>
@@ -12,8 +12,11 @@
         </ul>
         <div class="card-body text-center d-flex justify-content-between">
             <a class="btn-outline-info px-3 py-1 rounded text-primary fs-2" href="@Url.Action("Index", "Pizza")" title="Torna indietro" tabindex="-1" role="button" aria-disabled="true"><i class="fa-solid fa-arrow-left"></i></a>
-            <a class="btn-outline-secondary px-3 py-1 rounded text-warning fs-2" href="@Url.Action("Edit", "Pizza")" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
-            <a class="btn-outline-warning px-3 py-1 rounded text-danger fs-2" href="@Url.Action("Details", "Pizza")" title="Elimina" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-trash-can"></i></a>
+            <a class="btn-outline-info px-3 py-1 rounded text-warning fs-2" href="@Url.Action("Update", "Pizza", new {id = @Model.Id})" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
+            <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                @Html.AntiForgeryToken()
+                <button class="btn btn-danger fs-3" type="submit"><i class="fa-regular fa-trash-can"></i></button>
+            </form>
         </div>
     </div>
 </div>

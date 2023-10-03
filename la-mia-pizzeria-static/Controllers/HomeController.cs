@@ -1,4 +1,5 @@
-﻿using la_mia_pizzeria_static.Models;
+﻿using la_mia_pizzeria_static.CustomLoggers;
+using la_mia_pizzeria_static.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,15 +7,16 @@ namespace la_mia_pizzeria_static.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ICustomLogger _myLogger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ICustomLogger _logger)
         {
-            _logger = logger;
+            _myLogger = _logger;
         }
 
         public IActionResult Index()
         {
+            _myLogger.WriteLog("L'utente è arrivato nella pagina Home -> Index");
             return View();
         }
 
