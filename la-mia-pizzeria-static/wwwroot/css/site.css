@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+body {
+    font-family:'Fira Code';
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -23,8 +27,8 @@ a, button{
     cursor: pointer;
 }
 
-header, a:hover{
-    text-decoration: underline;
+header li:hover, footer i:hover, a:hover{
+    transform: scale(1.1);
 }
 footer {
     -webkit-transform: rotate(-180deg);
@@ -37,17 +41,16 @@ footer i {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
+.my_main {
+    height: 100vh;
+    background-image: url('https://us.123rf.com/450wm/brunonetto/brunonetto2301/brunonetto230100033/196401786-pizza-ai-peperoni-italiana-tradizionale-con-salsa-di-pomodoro-e-rucola.jpg?ver=6');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+
+aside{
+    position: absolute;
     right: 0;
-    z-index: 50;
+    background-color: pink;
+    padding: 100px
 }

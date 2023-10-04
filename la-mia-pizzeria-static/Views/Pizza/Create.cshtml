@@ -1,4 +1,4 @@
-﻿@model Pizza
+﻿@model PizzaFormModel
 
 <div class="text-center shadow-lg py-1 mt-5">
     <h1 class="fst-italic">Creazione nuova pizza</h1>
@@ -9,27 +9,38 @@
         @Html.AntiForgeryToken()
 
         <div class="mb-3">
-            <label asp-for="Name" class="form-label text-uppercase">Nome</label>
-            <input asp-for="Name" class="form-control" type="text" placeholder="Inserire un nome">
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="Pizza.Name" class="form-label text-uppercase">Nome:</label>
+            <input asp-for="Pizza.Name" class="form-control" type="text" placeholder="Inserire un nome" autofocus="true">
+            <span asp-validation-for="Pizza.Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="Description" class="form-label text-uppercase">Descrizione</label>
-            <input asp-for="Description" class="form-control" type="text" placeholder="Inserire una descrizione">
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <label asp-for="Pizza.Description" class="form-label text-uppercase">Descrizione:</label>
+            <input asp-for="Pizza.Description" class="form-control" type="text" placeholder="Inserire una descrizione">
+            <span asp-validation-for="Pizza.Description" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="UrlImage" class="form-label text-uppercase">Link immagine</label>
-            <input asp-for="UrlImage" class="form-control" type="text" placeholder="Inserire un url per l'immagine">
-            <span asp-validation-for="UrlImage" class="text-danger"></span>
+            <label asp-for="Pizza.UrlImage" class="form-label text-uppercase">Link immagine:</label>
+            <input asp-for="Pizza.UrlImage" class="form-control" type="text" placeholder="Inserire un url per l'immagine">
+            <span asp-validation-for="Pizza.UrlImage" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="Price" class="form-label text-uppercase">Prezzo</label>
-            <input asp-for="Price" class="form-control" type="text" placeholder="Inserire un prezzo" >
-            <span asp-validation-for="Price" class="text-danger"></span>
+            <label asp-for="Pizza.Price" class="form-label text-uppercase">Prezzo:</label>
+            <input asp-for="Pizza.Price" class="form-control" type="text" placeholder="Inserire un prezzo" >
+            <span asp-validation-for="Pizza.Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Pizza.Category" class="form-label text-uppercase">Categoria:</label>
+            <select asp-for="Pizza.CategoryId" class="form-select form-select-sm" aria-label="Small select example">
+                <option>Seleziona la categoria...</option>
+                @foreach(Category category in Model.Categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
         </div>
 
         <div class="d-grid mt-5">
