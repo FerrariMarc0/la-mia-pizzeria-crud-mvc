@@ -1,4 +1,5 @@
-﻿using la_mia_pizzeria_static.ValidationAttributes;
+﻿using la_mia_pizzeria_static.Models.Database_models;
+using la_mia_pizzeria_static.ValidationAttributes;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,6 +11,7 @@ namespace la_mia_pizzeria_static.Models
         public int Id { get; set; }
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+        public List<Ingredient>? Ingredients { get; set; }
 
         [Required(ErrorMessage = "Questo campo non può essere vuoto")]
         [StringLength(50, ErrorMessage = "Il nome NON può essere piu lungo di 50 caratteri.")]

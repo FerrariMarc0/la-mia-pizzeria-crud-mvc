@@ -1,4 +1,5 @@
 ﻿using la_mia_pizzeria_static.Models;
+using la_mia_pizzeria_static.Models.Database_models;
 using Microsoft.EntityFrameworkCore;
 
 namespace la_mia_pizzeria_static.Database
@@ -7,6 +8,7 @@ namespace la_mia_pizzeria_static.Database
     {
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

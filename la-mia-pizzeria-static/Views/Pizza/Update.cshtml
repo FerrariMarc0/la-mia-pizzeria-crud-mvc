@@ -50,6 +50,11 @@
             </select>
         </div>
 
+        <div class="mb-3">
+            <label asp-for="SelectedIngredientsId" class="form-label text-uppercase">Seleziona gli ingredienti:</label>
+            <select asp-for="SelectedIngredientsId" asp-items="@Model.Ingredients" class="form-select" multiple aria-label="Multiple select example"></select>
+        </div>
+
         <div class="d-grid mt-5">
             <button class="btn btn-success" type="submit">Salva modifiche</button>
         </div>
