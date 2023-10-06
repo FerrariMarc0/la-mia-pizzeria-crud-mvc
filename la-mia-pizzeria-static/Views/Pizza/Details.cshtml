@@ -33,16 +33,18 @@
             {
                 <span class="text-warning">Nessun ingrediente associato.</span>
             }
-        
-            
-        
+
         <div class="card-body text-center d-flex justify-content-between">
             <a class="text-primary fs-1" href="@Url.Action("Index", "Pizza")" title="Torna indietro" tabindex="-1" role="button" aria-disabled="true"><i class="fa-solid fa-arrow-left"></i></a>
-            <a class="text-warning fs-1" href="@Url.Action("Update", "Pizza", new {id = @Model.Id})" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
-            <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@Model.Id" method="post">
-                @Html.AntiForgeryToken()
-                <button class="del btn btn-danger fs-3" type="submit" title="Elimina"><i class="fa-regular fa-trash-can"></i></button>
-            </form>
+            @if (User.IsInRole("ADMIN"))
+            {
+                <a class="text-warning fs-1" href="@Url.Action("Update", "Pizza", new {id = @Model.Id})" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
+                <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <button class="del btn btn-danger fs-3" type="submit" title="Elimina"><i class="fa-regular fa-trash-can"></i></button>
+                </form>
+            }
+            
         </div>
     </div>
 </div>

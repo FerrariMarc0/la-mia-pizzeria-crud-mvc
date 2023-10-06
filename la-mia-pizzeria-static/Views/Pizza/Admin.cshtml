@@ -12,7 +12,11 @@
 else
 {
     <div class="container shadow-lg py-3 text-center" style="margin: 5rem auto">
-        <a href="@Url.Action("Create", "Pizza")" type="button" class="fs-1 text-warning" title="Aggiungi nuovo elemento"><i class="fa-solid fa-plus"></i></a>
+        @if (User.IsInRole("ADMIN"))
+        {
+            <a href="@Url.Action("Create", "Pizza")" type="button" class="fs-1 text-warning" title="Aggiungi nuovo elemento"><i class="fa-solid fa-plus"></i></a>
+        }
+        
         <table class="table table-bordered mt-5">
             <thead>
                 <tr class="align-middle text-center">
@@ -35,11 +39,14 @@ else
                         <td><span>€ @pizza.Price</span></td>
                         <td class="d-flex mt-5 gap-3 px-5">
                             <a class="btn btn-primary fs-3" href="@Url.Action("Details", "Pizza", new {id = pizza.Id})" title="Dettagli" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-eye"></i></a>
-                            <a class="btn btn-warning fs-3" href="@Url.Action("Update", "Pizza", new {id = pizza.Id})" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
-                                @Html.AntiForgeryToken()
-                                <button class="btn btn-danger fs-3" type="submit" title="Elimina"><i class="fa-regular fa-trash-can"></i></button>
-                            </form>
+                            @if (User.IsInRole("ADMIN"))
+                            {
+                                <a class="btn btn-warning fs-3" href="@Url.Action("Update", "Pizza", new {id = pizza.Id})" title="Modifica" tabindex="-1" role="button" aria-disabled="true"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <button class="btn btn-danger fs-3" type="submit" title="Elimina"><i class="fa-regular fa-trash-can"></i></button>
+                                </form>
+                            }
                         </td>
                     </tr>
                 }
